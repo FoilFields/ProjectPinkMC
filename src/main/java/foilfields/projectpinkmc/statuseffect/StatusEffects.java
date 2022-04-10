@@ -13,6 +13,5 @@ public class StatusEffects {
     }
 
     public static void init() {
-
     }
 }

@@ -20,7 +20,6 @@ public class PigEffect extends StatusEffect {
     @Override
     public void applyUpdateEffect(LivingEntity entity, int amplifier) {
         if (entity instanceof PlayerEntity) {
-
         }
     }
 

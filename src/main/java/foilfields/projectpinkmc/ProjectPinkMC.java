@@ -12,7 +12,7 @@ import org.slf4j.LoggerFactory;
 
 public class ProjectPinkMC implements ModInitializer {
     public static final Logger LOGGER = LoggerFactory.getLogger("projectpinkmc");
-    public static ItemGroup CREATIVE_GROUP = FabricItemGroupBuilder.build(new Identifier(ProjectPinkSettings.MOD_ID, ProjectPinkSettings.MOD_ID), () -> new ItemStack(Items.PROJECT_PINK_LOGO));
+    public static ItemGroup CREATIVE_GROUP = FabricItemGroupBuilder.build(new Identifier(ProjectPinkSettings.MOD_ID, ProjectPinkSettings.MOD_ID), () -> new ItemStack(Items.SOUL_SHEARS));
 
 
     @Override

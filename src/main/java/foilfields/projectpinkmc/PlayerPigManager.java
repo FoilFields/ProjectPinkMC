@@ -14,8 +14,7 @@ public class PlayerPigManager {
             pigDisguises.put(player, pig);
             return pig;
         }
-        LivingEntity pig = pigDisguises.get(player);
 
-        return pig;
+        return pigDisguises.get(player);
     }
 }

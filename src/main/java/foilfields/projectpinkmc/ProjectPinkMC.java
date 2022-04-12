@@ -1,5 +1,6 @@
 package foilfields.projectpinkmc;
 
+import foilfields.projectpinkmc.foodcomponent.FoodComponents;
 import foilfields.projectpinkmc.item.Items;
 import foilfields.projectpinkmc.statuseffect.StatusEffects;
 import net.fabricmc.api.ModInitializer;
@@ -19,6 +20,7 @@ public class ProjectPinkMC implements ModInitializer {
     public void onInitialize() {
         Items.init();
         StatusEffects.init();
+        FoodComponents.init();
         LOGGER.info("Project Pink Enabled!");
     }
 }

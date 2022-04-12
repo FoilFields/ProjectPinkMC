@@ -1,30 +1,19 @@
 package foilfields.projectpinkmc.item;
 
-import foilfields.projectpinkmc.statuseffect.PigEffect;
-import foilfields.projectpinkmc.statuseffect.StatusEffects;
 import net.minecraft.advancement.criterion.Criteria;
-import net.minecraft.entity.Entity;
 import net.minecraft.entity.LivingEntity;
-import net.minecraft.entity.effect.StatusEffect;
-import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.ItemUsage;
-import net.minecraft.screen.slot.Slot;
 import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.sound.SoundEvent;
 import net.minecraft.sound.SoundEvents;
 import net.minecraft.stat.Stats;
-import net.minecraft.text.*;
-import net.minecraft.util.ClickType;
 import net.minecraft.util.Hand;
 import net.minecraft.util.TypedActionResult;
 import net.minecraft.util.UseAction;
 import net.minecraft.world.World;
-import net.minecraft.world.event.GameEvent;
-
-import java.util.List;
 
 public class PigPolymorph extends Item {
     public PigPolymorph(Settings settings) {
@@ -33,35 +22,22 @@ public class PigPolymorph extends Item {
 
     @Override
     public ItemStack finishUsing(ItemStack stack, World world, LivingEntity user) {
-        PlayerEntity playerEntity = user instanceof PlayerEntity ? (PlayerEntity)user : null;
-
+        super.finishUsing(stack, world, user);
         if (user instanceof ServerPlayerEntity) {
             ServerPlayerEntity serverPlayerEntity = (ServerPlayerEntity)user;
             Criteria.CONSUME_ITEM.trigger(serverPlayerEntity, stack);
             serverPlayerEntity.incrementStat(Stats.USED.getOrCreateStat(this));
         }
-
-        if(!world.isClient) {
-            user.addStatusEffect(new StatusEffectInstance(StatusEffects.PIG, 1000, 0));
+        if (stack.isEmpty()) {
+            return new ItemStack(Items.VIAL);
         }
-
-        if (playerEntity != null) {
-            playerEntity.incrementStat(Stats.USED.getOrCreateStat(this));
-            if (!playerEntity.getAbilities().creativeMode) {
-                stack.decrement(1);
+        if (user instanceof PlayerEntity && !((PlayerEntity)user).getAbilities().creativeMode) {
+            ItemStack itemStack = new ItemStack(Items.VIAL);
+            PlayerEntity playerEntity = (PlayerEntity)user;
+            if (!playerEntity.getInventory().insertStack(itemStack)) {
+                playerEntity.dropItem(itemStack, false);
             }
         }
-
-        if (playerEntity == null || !playerEntity.getAbilities().creativeMode) {
-            if (stack.isEmpty()) {
-                return new ItemStack(Items.VIAL);
-            }
-            if (playerEntity != null) {
-                playerEntity.getInventory().insertStack(new ItemStack(Items.VIAL));
-            }
-        }
-
-        world.emitGameEvent((Entity)user, GameEvent.DRINKING_FINISH, user.getCameraBlockPos());
         return stack;
     }
 

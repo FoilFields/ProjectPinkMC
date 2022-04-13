@@ -6,7 +6,8 @@
   "mixins": [
     "PigEntityMixin",
     "PlayerEntityMixin",
-    "PlayerEntityRendererMixin"
+    "PlayerEntityRendererMixin",
+    "EntityMixin"
   ],
   "client": [
   ],

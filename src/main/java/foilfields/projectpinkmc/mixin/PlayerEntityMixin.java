@@ -9,28 +9,29 @@ import net.minecraft.sound.SoundEvent;
 import net.minecraft.sound.SoundEvents;
 import net.minecraft.world.World;
 import org.spongepowered.asm.mixin.Mixin;
+import org.spongepowered.asm.mixin.Shadow;
+import org.spongepowered.asm.mixin.injection.At;
+import org.spongepowered.asm.mixin.injection.Inject;
+import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 @Mixin(PlayerEntity.class)
 public abstract class PlayerEntityMixin extends LivingEntity {
+
+    @Shadow public abstract boolean isPlayer();
 
     protected PlayerEntityMixin(EntityType<? extends LivingEntity> entityType, World world) {
         super(entityType, world);
     }
 
-    @Override
-    public SoundEvent getHurtSound(DamageSource source) {
+    @Inject(method = "getHurtSound", at = @At("HEAD"), cancellable = true)
+    public void getHurtSound(DamageSource source, CallbackInfoReturnable<SoundEvent> cir) {
         if (this.hasStatusEffect(StatusEffects.PIG))
-        return SoundEvents.ENTITY_PIG_HURT;
-
-        return super.getHurtSound(source);
+        cir.setReturnValue(SoundEvents.ENTITY_PIG_HURT);
     }
 
-    @Override
-    public SoundEvent getDeathSound() {
+    @Inject(method = "getDeathSound", at = @At("HEAD"), cancellable = true)
+    public void getDeathSound(CallbackInfoReturnable<SoundEvent> cir) {
         if (this.hasStatusEffect(StatusEffects.PIG))
-        return SoundEvents.ENTITY_PIG_DEATH;
-
-        return super.getDeathSound();
-
+        cir.setReturnValue(SoundEvents.ENTITY_PIG_DEATH);
     }
 }

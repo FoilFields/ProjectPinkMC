@@ -9,7 +9,7 @@ import net.minecraft.text.Text;
 
 public class PigEffect extends StatusEffect {
     protected PigEffect() {
-        super(StatusEffectCategory.NEUTRAL, 0x98D982);
+        super(StatusEffectCategory.NEUTRAL, 0x000000);
     }
 
     @Override

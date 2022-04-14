@@ -7,7 +7,9 @@ version = project.mod_version
 group = project.maven_group
 
 repositories {
-
+    maven {
+        url = "https://jitpack.io"
+    }
 }
 
 dependencies {
@@ -18,6 +20,10 @@ dependencies {
 
     // Fabric API. This is technically optional, but you probably want it anyway.
     modImplementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_version}"
+
+    modApi("com.github.Virtuoel:Pehkui:${project.pehkui_version}", {
+        exclude group: "net.fabricmc.fabric-api"
+    })
 }
 
 processResources {

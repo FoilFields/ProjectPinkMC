@@ -13,7 +13,7 @@ public class Items {
     public static final Item PIG_POLYMORPH = register("pig_polymorph", new PigPolymorph(new Item.Settings().recipeRemainder(VIAL).food(FoodComponents.PIG_POLYMORPH).group(ProjectPinkMC.CREATIVE_GROUP).maxCount(16)));
     public static final Item SOUL_SHEARS = register("soul_shears", new SoulShears(new Item.Settings().maxDamage(25).group(ProjectPinkMC.CREATIVE_GROUP)));
     public static final Item PIG_SOUL = register("pig_soul", new Item(new Item.Settings().group(ProjectPinkMC.CREATIVE_GROUP)));
-    public static final Item NIGHTSHADE_BERRIES = Items.register("nightshade_berries", new AliasedBlockItem(Blocks.NIGHTSHADE_BUSH, new Item.Settings().group(ItemGroup.FOOD).food(FoodComponents.NIGHTSHADE_BERRIES)));
+    public static final Item NIGHTSHADE_BERRIES = Items.register("nightshade_berries", new AliasedBlockItem(Blocks.NIGHTSHADE_BUSH, new Item.Settings().group(ItemGroup.FOOD).food(FoodComponents.NIGHTSHADE_BERRIES).group(ProjectPinkMC.CREATIVE_GROUP)));
 
     private static Item register(String id, Item item) {
         return register(new Identifier(ProjectPinkSettings.MOD_ID, id), item);

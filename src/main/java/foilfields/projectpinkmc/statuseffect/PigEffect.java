@@ -9,8 +9,6 @@ import virtuoel.pehkui.api.ScaleData;
 import virtuoel.pehkui.api.ScaleTypes;
 
 public class PigEffect extends StatusEffect {
-    ScaleData scaleDataWidth, scaleDataHeight, scaleDataEyeHeight;
-
     protected PigEffect() {
         super(StatusEffectCategory.NEUTRAL, 0x000000);
     }
@@ -22,6 +20,12 @@ public class PigEffect extends StatusEffect {
 
     @Override
     public void onRemoved(LivingEntity entity, AttributeContainer attributes, int amplifier) {
+        ScaleData scaleDataWidth, scaleDataHeight, scaleDataEyeHeight;
+
+        scaleDataWidth = ScaleData.Builder.create().entity(entity).type(ScaleTypes.HITBOX_WIDTH).build();
+        scaleDataHeight = ScaleData.Builder.create().entity(entity).type(ScaleTypes.HITBOX_HEIGHT).build();
+        scaleDataEyeHeight = ScaleData.Builder.create().entity(entity).type(ScaleTypes.EYE_HEIGHT).build();
+
         scaleDataWidth.setScale(1);
         scaleDataHeight.setScale(1);
         scaleDataEyeHeight.setScale(1);
@@ -29,6 +33,8 @@ public class PigEffect extends StatusEffect {
 
     @Override
     public void onApplied(LivingEntity entity, AttributeContainer attributes, int amplifier) {
+        ScaleData scaleDataWidth, scaleDataHeight, scaleDataEyeHeight;
+
         scaleDataWidth = ScaleData.Builder.create().entity(entity).type(ScaleTypes.HITBOX_WIDTH).build();
         scaleDataHeight = ScaleData.Builder.create().entity(entity).type(ScaleTypes.HITBOX_HEIGHT).build();
         scaleDataEyeHeight = ScaleData.Builder.create().entity(entity).type(ScaleTypes.EYE_HEIGHT).build();

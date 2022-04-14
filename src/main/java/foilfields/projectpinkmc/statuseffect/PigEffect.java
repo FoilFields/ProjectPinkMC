@@ -21,14 +21,4 @@ public class PigEffect extends StatusEffect {
         if (entity instanceof PlayerEntity) {
         }
     }
-
-    @Override
-    public void onApplied(LivingEntity entity, AttributeContainer attributes, int amplifier) {
-        entity.calculateDimensions();
-    }
-
-    @Override
-    public void onRemoved(LivingEntity entity, AttributeContainer attributes, int amplifier) {
-        entity.calculateDimensions();
-    }
 }

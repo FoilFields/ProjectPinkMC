@@ -15,10 +15,4 @@ public class PigEffect extends StatusEffect {
     public boolean canApplyUpdateEffect(int duration, int amplifier) {
         return true;
     }
-
-    @Override
-    public void applyUpdateEffect(LivingEntity entity, int amplifier) {
-        if (entity instanceof PlayerEntity) {
-        }
-    }
 }

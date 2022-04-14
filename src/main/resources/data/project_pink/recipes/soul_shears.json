@@ -1,15 +1,12 @@
 {
   "type": "minecraft:crafting_shaped",
   "pattern": [
-    "S#",
-    "#S"
+    " #",
+    "# "
   ],
   "key": {
     "#": {
       "item": "minecraft:gold_ingot"
-    },
-    "S": {
-      "item": "project_pink:pig_soul"
     }
   },
   "result": {

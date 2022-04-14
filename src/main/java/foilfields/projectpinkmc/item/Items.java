@@ -4,6 +4,8 @@ import foilfields.projectpinkmc.ProjectPinkMC;
 import foilfields.projectpinkmc.ProjectPinkSettings;
 import foilfields.projectpinkmc.block.Blocks;
 import foilfields.projectpinkmc.foodcomponent.FoodComponents;
+import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
+import net.minecraft.block.Block;
 import net.minecraft.item.*;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
@@ -15,6 +17,7 @@ public class Items {
     public static final Item PIG_SOUL = register("pig_soul", new Item(new Item.Settings().group(ProjectPinkMC.CREATIVE_GROUP)));
     public static final Item NIGHTSHADE_BERRIES = Items.register("nightshade_berries", new AliasedBlockItem(Blocks.NIGHTSHADE_BUSH, new Item.Settings().group(ItemGroup.FOOD).food(FoodComponents.NIGHTSHADE_BERRIES).group(ProjectPinkMC.CREATIVE_GROUP)));
     public static final Item PIG_CHUNK = register("pig_chunk", new Item(new Item.Settings().group(ProjectPinkMC.CREATIVE_GROUP)));
+    public static final Item DICER = register("dicer", new BlockItem(Blocks.DICER, new FabricItemSettings().group(ProjectPinkMC.CREATIVE_GROUP)));;
 
     private static Item register(String id, Item item) {
         return register(new Identifier(ProjectPinkSettings.MOD_ID, id), item);

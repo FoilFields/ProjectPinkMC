@@ -1,5 +1,19 @@
 {
   "variants": {
-    "": { "model": "project_pink:block/dicer" }
+    "facing=east": {
+      "model": "project_pink:block/dicer",
+      "y": 270
+    },
+    "facing=north": {
+      "model": "project_pink:block/dicer",
+      "y": 180
+    },
+    "facing=south": {
+      "model": "project_pink:block/dicer"
+    },
+    "facing=west": {
+      "model": "project_pink:block/dicer",
+      "y": 90
+    }
   }
 }

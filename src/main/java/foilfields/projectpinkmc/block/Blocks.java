@@ -1,10 +1,12 @@
 package foilfields.projectpinkmc.block;
 
 import foilfields.projectpinkmc.ProjectPinkSettings;
+import foilfields.projectpinkmc.block.entity.DicerBlockEntity;
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
 import net.minecraft.block.AbstractBlock;
 import net.minecraft.block.Block;
 import net.minecraft.block.Material;
+import net.minecraft.block.entity.BlockEntityType;
 import net.minecraft.sound.BlockSoundGroup;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
@@ -18,6 +20,5 @@ public class Blocks {
     }
 
     public static void init() {
-
     }
 }

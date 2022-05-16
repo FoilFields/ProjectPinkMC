@@ -1,6 +1,7 @@
 package foilfields.projectpinkmc;
 
 import foilfields.projectpinkmc.block.Blocks;
+import foilfields.projectpinkmc.block.entity.BlockEntityTypes;
 import foilfields.projectpinkmc.foodcomponent.FoodComponents;
 import foilfields.projectpinkmc.item.Items;
 import foilfields.projectpinkmc.statuseffect.StatusEffects;
@@ -23,6 +24,7 @@ public class ProjectPinkMC implements ModInitializer {
         StatusEffects.init();
         FoodComponents.init();
         Blocks.init();
+        BlockEntityTypes.init();
         LOGGER.info("Project Pink Enabled!");
     }
 }
